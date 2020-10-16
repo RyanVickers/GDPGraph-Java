@@ -3,9 +3,9 @@ import java.util.Calendar;
 public class GrossDomesticProduct {
     private int gdpId, year, gdpMarketValue, gdpDomesticValue;
     private String quarter;
-    private float gdpPercentChange;
+    private double gdpPercentChange;
 
-    public GrossDomesticProduct(int gdpId, int year, float gdpPercentChange, int gdpMarketValue, int gdpDomesticValue, String quarter) {
+    public GrossDomesticProduct(int gdpId, int year, String quarter, int gdpMarketValue, int gdpDomesticValue, double gdpPercentChange) {
         setGdpId(gdpId);
         setYear(year);
         setGdpPercentChange(gdpPercentChange);
@@ -32,7 +32,7 @@ public class GrossDomesticProduct {
     }
 
     public void setYear(int year) {
-        if (year>1960 && year< Calendar.getInstance().get(Calendar.YEAR))
+        if (year>1960 && year<=Calendar.getInstance().get(Calendar.YEAR))
         this.year = year;
         else
             throw new IllegalArgumentException("Year must be between 1961 and the current year");
@@ -71,18 +71,18 @@ public class GrossDomesticProduct {
             throw new IllegalArgumentException("Quarter must be in Q[1-4] format");
     }
 
-    public float getGdpPercentChange() {
+    public double getGdpPercentChange() {
         return gdpPercentChange;
     }
 
-    public void setGdpPercentChange(float gdpPercentChange) {
+    public void setGdpPercentChange(double gdpPercentChange) {
         if(gdpPercentChange>=-100 && gdpPercentChange<=100)
         this.gdpPercentChange = gdpPercentChange;
         else
             throw new IllegalArgumentException("GDP Percent Change must be Between -100 and 100");
     }
 public String toString(){
-        return String.format("%s %d Domestic GDP: %d Market GDP: %d GDP Growth Rate:%.1f",quarter,year,gdpDomesticValue,gdpMarketValue,gdpPercentChange);
+        return String.format("%s %d Domestic GDP: %d, Market GDP: %d, GDP Growth Rate:%.1f%%",quarter,year,gdpDomesticValue,gdpMarketValue,gdpPercentChange);
 }
 }
 
