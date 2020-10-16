@@ -1,3 +1,4 @@
+import java.sql.SQLException;
 import java.util.Calendar;
 
 public class GrossDomesticProduct {
@@ -12,9 +13,13 @@ public class GrossDomesticProduct {
         setGdpMarketValue(gdpMarketValue);
         setGdpDomesticValue(gdpDomesticValue);
         setQuarter(quarter);
+
+        try {
+        gdpId = DBUtility.insertNewGdp(this);
+    } catch (SQLException e) {
+        e.printStackTrace();
     }
-
-
+}
     public int getGdpId() {
         return gdpId;
     }
@@ -82,7 +87,7 @@ public class GrossDomesticProduct {
             throw new IllegalArgumentException("GDP Percent Change must be Between -100 and 100");
     }
 public String toString(){
-        return String.format("%s %d Domestic GDP: %d, Market GDP: %d, GDP Growth Rate:%.1f%%",quarter,year,gdpDomesticValue,gdpMarketValue,gdpPercentChange);
+        return String.format("%d %s %d Domestic GDP: %d, Market GDP: %d, GDP Growth Rate:%.1f%%",gdpId,quarter,year,gdpDomesticValue,gdpMarketValue,gdpPercentChange);
 }
 }
 
