@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.chart.StackedBarChart?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GdpTableViewController">
    <children>
-      <StackedBarChart layoutX="63.0">
-        <xAxis>
-          <CategoryAxis side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis side="LEFT" />
-        </yAxis>
-      </StackedBarChart>
+      <TableView fx:id="tableView" layoutY="2.0" prefHeight="327.0" prefWidth="610.0">
+        <columns>
+          <TableColumn fx:id="gdpIdColumn" prefWidth="75.0" text="GDP ID" />
+          <TableColumn fx:id="quarterColumn" prefWidth="75.0" text="Quarter" />
+            <TableColumn fx:id="yearColumn" prefWidth="75.0" text="Year" />
+            <TableColumn fx:id="gdpMarketValueColumn" prefWidth="109.60008239746094" text="GDP Market Value" />
+            <TableColumn fx:id="gdpDomesticValueColumn" minWidth="0.0" prefWidth="142.39996337890625" text="GDP Domestic Demand" />
+            <TableColumn fx:id="gdpPercentChangeColumn" prefWidth="131.20004272460938" text="GDP Growth Rate" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

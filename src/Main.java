@@ -6,8 +6,8 @@ import javafx.stage.Stage;
 public class Main extends Application{
     public static void main(String[] args) {
         launch(args);
-        GrossDomesticProduct G = new GrossDomesticProduct(1, 2012, "Q1", 1, 5, 100);
-        System.out.println(G);
+        //GrossDomesticProduct G = new GrossDomesticProduct(2020, "Q1", 1, 5, 100);
+       // System.out.println(G);
 
     }
 
