@@ -9,7 +9,7 @@ public class DBUtility {
         Connection con = null;
         PreparedStatement preparedStatement = null;
         int gdpId = -1;
-        try{
+        try {
             //connecting to the database
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/gdpData",
                     user, password);
@@ -17,7 +17,7 @@ public class DBUtility {
             String sql = "INSERT INTO grossDomesticProduct (year,quarter,gdpMarketValue,gdpDomesticValue,gdpPercentChange) " +
                     "VALUES (?,?,?,?,?)";
             //preparing query with SQL
-            preparedStatement = con.prepareStatement(sql, new String[] {"gdpId"});
+            preparedStatement = con.prepareStatement(sql, new String[]{"gdpId"});
             //binding the values to datatypes.
             preparedStatement.setInt(1, newGdp.getYear());
             preparedStatement.setString(2, newGdp.getQuarter());
@@ -29,15 +29,12 @@ public class DBUtility {
             preparedStatement.executeUpdate();
             //getting the gdpId
             ResultSet rs = preparedStatement.getGeneratedKeys();
-            while (rs.next())
-            {
+            while (rs.next()) {
                 gdpId = rs.getInt(1);
             }
-        } catch(Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             if (preparedStatement != null)
                 preparedStatement.close();
             if (con != null)
@@ -45,13 +42,14 @@ public class DBUtility {
             return gdpId;
         }
     }
+
     public static ArrayList<GrossDomesticProduct> getGdp() throws SQLException {
         ArrayList<GrossDomesticProduct> gdp = new ArrayList<>();
         Connection con = null;
         Statement sqlStatement = null;
         ResultSet resultSet = null;
 
-        try{
+        try {
             //Connecting to Database
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/gdpData",
                     user, password);
@@ -60,24 +58,21 @@ public class DBUtility {
             //creating SQL query
             resultSet = sqlStatement.executeQuery("SELECT * FROM grossDomesticProduct");
             //creating gdp objects
-            while (resultSet.next())
-            {
+            while (resultSet.next()) {
                 GrossDomesticProduct newGdp = new GrossDomesticProduct
                         (resultSet.getInt("gdpId"),
-                        resultSet.getInt("year"),
-                        resultSet.getString("quarter"),
-                        resultSet.getInt("gdpMarketValue"),
-                        resultSet.getInt("gdpDomesticValue"),
-                        resultSet.getDouble("gdpPercentChange"));
+                                resultSet.getInt("year"),
+                                resultSet.getString("quarter"),
+                                resultSet.getInt("gdpMarketValue"),
+                                resultSet.getInt("gdpDomesticValue"),
+                                resultSet.getDouble("gdpPercentChange"));
                 gdp.add(newGdp);
             }
 
-        }catch ( Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally {
-            if (con !=null) con.close();
+        } finally {
+            if (con != null) con.close();
             if (resultSet != null) resultSet.close();
             if (sqlStatement != null) resultSet.close();
             return gdp;

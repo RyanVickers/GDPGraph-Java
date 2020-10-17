@@ -8,15 +8,14 @@ public class Main extends Application{
         launch(args);
         //GrossDomesticProduct G = new GrossDomesticProduct(2020, "Q1", 1, 5, 100);
        // System.out.println(G);
-
     }
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("GdpTableView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("GdpGraphView.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setTitle("GDP Table");
+        stage.setTitle("Canada GDP Graph");
         stage.show();
     }
 }
