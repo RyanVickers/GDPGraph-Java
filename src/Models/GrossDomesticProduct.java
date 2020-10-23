@@ -1,3 +1,7 @@
+package Models;
+
+import Utilities.DBUtility;
+
 import java.sql.SQLException;
 import java.util.Calendar;
 

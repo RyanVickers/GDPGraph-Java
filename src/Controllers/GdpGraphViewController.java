@@ -1,3 +1,7 @@
+package Controllers;
+
+import Utilities.DBUtility;
+import Utilities.SceneChangerUtility;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -5,7 +9,6 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.Button;
 
 import java.io.IOException;
 import java.net.URL;
@@ -38,7 +41,7 @@ public class GdpGraphViewController implements Initializable {
 
     @FXML
     private void viewTable(ActionEvent event) throws IOException {
-        SceneChangerUtility.changeScene(event, "GdpTableView.fxml",
+        SceneChangerUtility.changeScene(event, "/Views/GdpTableView.fxml",
                 "Canada GDP Table View");
     }
 }

@@ -1,3 +1,6 @@
+package Utilities;
+
+import Models.GrossDomesticProduct;
 import javafx.scene.chart.XYChart;
 
 import java.sql.*;
@@ -81,7 +84,6 @@ public class DBUtility {
         }
     }
 
-
     public static XYChart.Series<String, Integer> getGdpGraph() throws SQLException {
         XYChart.Series<String, Integer> gdpSeries = new XYChart.Series<>();
         Connection con = null;
@@ -96,7 +98,7 @@ public class DBUtility {
             sqlStatement = con.createStatement();
             resultSet = sqlStatement.executeQuery("SELECT quarter,year,gdpPercentChange FROM grossDomesticProduct order by year");
             while (resultSet.next()) {
-                gdpSeries.getData().add(new XYChart.Data<>(resultSet.getString(1) +" " +(resultSet.getString(2)), resultSet.getInt(3)));
+                gdpSeries.getData().add(new XYChart.Data<>(resultSet.getString(1) + " " + (resultSet.getString(2)), resultSet.getInt(3)));
             }
         } catch (Exception e) {
             e.printStackTrace();
