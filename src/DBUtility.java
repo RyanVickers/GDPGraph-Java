@@ -94,9 +94,9 @@ public class DBUtility {
                     user, password);
             //creating statement object
             sqlStatement = con.createStatement();
-            resultSet = sqlStatement.executeQuery("SELECT quarter,gdpPercentChange FROM grossDomesticProduct");
+            resultSet = sqlStatement.executeQuery("SELECT quarter,year,gdpPercentChange FROM grossDomesticProduct order by year");
             while (resultSet.next()) {
-                gdpSeries.getData().add(new XYChart.Data<>(resultSet.getString(1), resultSet.getInt(2)));
+                gdpSeries.getData().add(new XYChart.Data<>(resultSet.getString(1) +" " +(resultSet.getString(2)), resultSet.getInt(3)));
             }
         } catch (Exception e) {
             e.printStackTrace();
