@@ -1,3 +1,5 @@
+import javafx.scene.chart.XYChart;
+
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -76,6 +78,33 @@ public class DBUtility {
             if (resultSet != null) resultSet.close();
             if (sqlStatement != null) resultSet.close();
             return gdp;
+        }
+    }
+
+
+    public static XYChart.Series<String, Integer> getGdpGraph() throws SQLException {
+        XYChart.Series<String, Integer> gdpSeries = new XYChart.Series<>();
+        Connection con = null;
+        Statement sqlStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            //Connecting to Database
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/gdpData",
+                    user, password);
+            //creating statement object
+            sqlStatement = con.createStatement();
+            resultSet = sqlStatement.executeQuery("SELECT quarter,gdpPercentChange FROM grossDomesticProduct");
+            while (resultSet.next()) {
+                gdpSeries.getData().add(new XYChart.Data<>(resultSet.getString(1), resultSet.getInt(2)));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (con != null) con.close();
+            if (resultSet != null) resultSet.close();
+            if (sqlStatement != null) resultSet.close();
+            return gdpSeries;
         }
     }
 }

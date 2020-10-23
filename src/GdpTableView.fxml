@@ -7,29 +7,23 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="GdpTableViewController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GdpTableViewController">
     <children>
         <VBox prefHeight="511.0" prefWidth="610.0">
             <children>
                 <TableView fx:id="tableView" prefHeight="443.0" prefWidth="610.0">
                     <columns>
-                        <TableColumn fx:id="gdpIdColumn" prefWidth="75.0" text="GDP ID"/>
-                        <TableColumn fx:id="quarterColumn" prefWidth="75.0" text="Quarter"/>
-                        <TableColumn fx:id="yearColumn" prefWidth="75.0" text="Year"/>
-                        <TableColumn fx:id="gdpMarketValueColumn" prefWidth="109.60008239746094"
-                                     text="GDP Market Value"/>
-                        <TableColumn fx:id="gdpDomesticValueColumn" minWidth="0.0" prefWidth="142.39996337890625"
-                                     text="GDP Domestic Demand"/>
-                        <TableColumn fx:id="gdpPercentChangeColumn" prefWidth="131.20004272460938"
-                                     text="GDP Growth Rate"/>
+                        <TableColumn fx:id="gdpIdColumn" prefWidth="75.0" text="GDP ID" />
+                        <TableColumn fx:id="quarterColumn" prefWidth="75.0" text="Quarter" />
+                        <TableColumn fx:id="yearColumn" prefWidth="75.0" text="Year" />
+                        <TableColumn fx:id="gdpMarketValueColumn" prefWidth="109.60008239746094" text="GDP Market Value" />
+                        <TableColumn fx:id="gdpDomesticValueColumn" minWidth="0.0" prefWidth="142.39996337890625" text="GDP Domestic Demand" />
+                        <TableColumn fx:id="gdpPercentChangeColumn" prefWidth="131.20004272460938" text="GDP Growth Rate" />
                     </columns>
                 </TableView>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                     <children>
-                        <Button fx:id="viewGraph" mnemonicParsing="false" onAction="#viewGraph" prefHeight="34.0"
-                                prefWidth="170.0" text="View Graph"/>
+                        <Button fx:id="viewGraph" mnemonicParsing="false" onAction="#viewGraph" prefHeight="34.0" prefWidth="170.0" text="View Graph" />
                     </children>
                 </HBox>
             </children>

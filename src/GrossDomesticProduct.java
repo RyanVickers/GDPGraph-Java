@@ -100,4 +100,3 @@ public class GrossDomesticProduct {
         return String.format("%d %s %d Domestic GDP: %d, Market GDP: %d, GDP Growth Rate:%.1f%%", gdpId, quarter, year, gdpDomesticValue, gdpMarketValue, gdpPercentChange);
     }
 }
-
