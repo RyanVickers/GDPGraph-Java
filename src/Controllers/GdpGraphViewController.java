@@ -9,6 +9,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Button;
 
 import java.io.IOException;
 import java.net.URL;
@@ -25,13 +26,17 @@ public class GdpGraphViewController implements Initializable {
     @FXML
     private NumberAxis percentAxis;
 
-    private XYChart.Series<String, Integer> gdpSeries;
+    @FXML
+    private Button tableView;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         barChart.setTitle("Canada's GDP per Quarter");
         quarterAxis.setLabel("Quarters");
         percentAxis.setLabel("GDP Growth Rate");
+        percentAxis.setAutoRanging(false);
+        percentAxis.setUpperBound(100);
+        percentAxis.setLowerBound(-100);
         try {
             barChart.getData().add(DBUtility.getGdpGraph());
         } catch (SQLException e) {

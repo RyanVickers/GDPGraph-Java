@@ -5,19 +5,34 @@
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/11.0.1" fx:controller="Controllers.GdpGraphViewController">
+<AnchorPane prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.GdpGraphViewController">
     <children>
-        <Button fx:id="tableView" layoutX="512.0" layoutY="264.0" mnemonicParsing="false" onAction="#viewTable"
-                text="View Table"/>
-        <BarChart fx:id="barChart" layoutX="14.0">
-            <xAxis>
-                <CategoryAxis fx:id="quarterAxis" side="BOTTOM"/>
-            </xAxis>
-            <yAxis>
-                <NumberAxis fx:id="percentAxis" side="LEFT"/>
-            </yAxis>
-        </BarChart>
+      <VBox prefHeight="600.0" prefWidth="700.0">
+         <children>
+              <BarChart fx:id="barChart" legendVisible="false" prefHeight="535.0" prefWidth="700.0">
+                  <xAxis>
+                      <CategoryAxis fx:id="quarterAxis" prefHeight="53.0" prefWidth="615.0" side="BOTTOM" tickLabelFill="WHITE">
+                     <tickLabelFont>
+                        <Font size="12.0" />
+                     </tickLabelFont></CategoryAxis>
+                  </xAxis>
+                  <yAxis>
+                      <NumberAxis fx:id="percentAxis" lowerBound="-100.0" minorTickVisible="false" prefHeight="454.0" prefWidth="56.0" side="LEFT" tickLabelFill="WHITE">
+                     <tickLabelFont>
+                        <Font size="12.0" />
+                     </tickLabelFont></NumberAxis>
+                  </yAxis>
+              </BarChart>
+            <HBox alignment="CENTER" prefHeight="90.0" prefWidth="700.0">
+               <children>
+                  <Button fx:id="tableView" mnemonicParsing="false" onAction="#viewTable" prefHeight="43.0" prefWidth="206.0" text="View Table" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
     </children>
 </AnchorPane>
