@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
 
 public class GdpGraphViewController implements Initializable {
     @FXML
-    private BarChart<String, Integer> barChart;
+    private BarChart<String, Double> barChart;
 
     @FXML
     private CategoryAxis quarterAxis;
@@ -30,11 +30,13 @@ public class GdpGraphViewController implements Initializable {
     private Button tableView;
 
     @Override
+    /**
+     * Method to initialize graph scene
+     */
     public void initialize(URL url, ResourceBundle resourceBundle) {
         barChart.setTitle("Canada's GDP per Quarter");
         quarterAxis.setLabel("Quarters");
         percentAxis.setLabel("GDP Growth Rate");
-        percentAxis.setAutoRanging(false);
         percentAxis.setUpperBound(100);
         percentAxis.setLowerBound(-100);
         try {
@@ -44,6 +46,12 @@ public class GdpGraphViewController implements Initializable {
         }
     }
 
+    /**
+     * Method to change to table scene
+     *
+     * @param event
+     * @throws IOException
+     */
     @FXML
     private void viewTable(ActionEvent event) throws IOException {
         SceneChangerUtility.changeScene(event, "/Views/GdpTableView.fxml",

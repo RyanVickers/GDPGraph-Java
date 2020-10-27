@@ -1,20 +1,26 @@
+/*General Css*/
 .root {
     -fx-background-color: #2b2928;
 }
 
-.table-view {
-    -fx-background-color: #2b2928;
-    -fx-font-size: 13px;
-}
-
-
-.column-header-background {
-    -fx-background-color: linear-gradient(#595858 0%, #2b2928 100%);
+.button {
+    -fx-background-color: white;
 }
 
 .label {
     -fx-text-fill: white;
 }
+
+/*Table View Css*/
+.table-view {
+    -fx-background-color: #2b2928;
+    -fx-font-size: 13px;
+}
+
+.column-header-background {
+    -fx-background-color: linear-gradient(#595858 0%, #2b2928 100%);
+}
+
 
 .column-header {
     -fx-background-color: transparent;
@@ -34,18 +40,13 @@
 
 .table-row-cell:selected {
     -fx-table-cell-border-color: black;
-
-
 }
 
 .filler {
     -fx-background-color: transparent;
 }
 
-.button {
-    -fx-background-color: white;
-}
-
+/*Bar chart Css*/
 .chart-bar {
     -fx-bar-fill: #91bbe6;
 }

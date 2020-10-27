@@ -39,6 +39,9 @@ public class GdpTableViewController implements Initializable {
     private TableColumn<GrossDomesticProduct, Integer> gdpPercentChangeColumn;
 
     @Override
+    /**
+     * Method to initialize Table scene
+     */
     public void initialize(URL url, ResourceBundle resourceBundle) {
         gdpIdColumn.setCellValueFactory(new PropertyValueFactory<GrossDomesticProduct, Integer>("gdpId"));
         quarterColumn.setCellValueFactory(new PropertyValueFactory<GrossDomesticProduct, String>("quarter"));
@@ -54,6 +57,12 @@ public class GdpTableViewController implements Initializable {
         }
     }
 
+    /**
+     * Method to change to graph scene
+     *
+     * @param event
+     * @throws IOException
+     */
     @FXML
     private void viewGraph(ActionEvent event) throws IOException {
         SceneChangerUtility.changeScene(event, "/Views/GdpGraphView.fxml", "Canada GDP Graph");

@@ -16,6 +16,9 @@ public class Main extends Application {
     }
 
     @Override
+    /**
+     * Start application method
+     */
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Views/GdpGraphView.fxml"));
         Scene scene = new Scene(root);

@@ -15,13 +15,13 @@
          <children>
               <BarChart fx:id="barChart" legendVisible="false" prefHeight="535.0" prefWidth="700.0">
                   <xAxis>
-                      <CategoryAxis fx:id="quarterAxis" prefHeight="53.0" prefWidth="615.0" side="BOTTOM" tickLabelFill="WHITE">
+                      <CategoryAxis fx:id="quarterAxis" prefHeight="107.0" prefWidth="615.0" side="BOTTOM" tickLabelFill="WHITE">
                      <tickLabelFont>
                         <Font size="12.0" />
                      </tickLabelFont></CategoryAxis>
                   </xAxis>
                   <yAxis>
-                      <NumberAxis fx:id="percentAxis" lowerBound="-100.0" minorTickVisible="false" prefHeight="454.0" prefWidth="56.0" side="LEFT" tickLabelFill="WHITE">
+                      <NumberAxis fx:id="percentAxis" lowerBound="-100.0" minorTickLength="0.1" prefHeight="454.0" prefWidth="56.0" side="LEFT" tickLabelFill="WHITE" tickUnit="0.1">
                      <tickLabelFont>
                         <Font size="12.0" />
                      </tickLabelFont></NumberAxis>

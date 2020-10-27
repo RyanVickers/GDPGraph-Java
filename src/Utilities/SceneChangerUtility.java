@@ -10,6 +10,14 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class SceneChangerUtility {
+    /**
+     * Method to change scenes
+     *
+     * @param event
+     * @param viewName
+     * @param title
+     * @throws IOException
+     */
     public static void changeScene(ActionEvent event, String viewName, String title) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(new Object() {

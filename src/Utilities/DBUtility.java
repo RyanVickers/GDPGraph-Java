@@ -7,16 +7,23 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class DBUtility {
-    private static String user = "root";
-    private static String password = "Computers#1";
+    private static String user = "Ryan1111810";
+    private static String password = "c-pehdxJDa";
 
+    /**
+     * Method to Insert gdp into database
+     *
+     * @param newGdp
+     * @return
+     * @throws SQLException
+     */
     public static int insertNewGdp(GrossDomesticProduct newGdp) throws SQLException {
         Connection con = null;
         PreparedStatement preparedStatement = null;
         int gdpId = -1;
         try {
             //connecting to the database
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/gdpData",
+            con = DriverManager.getConnection("jdbc:mysql://172.31.22.43/Ryan1111810?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
                     user, password);
             //Creating SQL String
             String sql = "INSERT INTO grossDomesticProduct (year,quarter,gdpMarketValue,gdpDomesticValue,gdpPercentChange) " +
@@ -48,6 +55,12 @@ public class DBUtility {
         }
     }
 
+    /**
+     * Method to return array of gdp from database to display in tableview
+     *
+     * @return
+     * @throws SQLException
+     */
     public static ArrayList<GrossDomesticProduct> getGdp() throws SQLException {
         ArrayList<GrossDomesticProduct> gdp = new ArrayList<>();
         Connection con = null;
@@ -56,7 +69,7 @@ public class DBUtility {
 
         try {
             //Connecting to Database
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/gdpData",
+            con = DriverManager.getConnection("jdbc:mysql://172.31.22.43/Ryan1111810?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
                     user, password);
             //creating statement object
             sqlStatement = con.createStatement();
@@ -84,21 +97,27 @@ public class DBUtility {
         }
     }
 
-    public static XYChart.Series<String, Integer> getGdpGraph() throws SQLException {
-        XYChart.Series<String, Integer> gdpSeries = new XYChart.Series<>();
+    /**
+     * Method to return data from database to display in barchart
+     *
+     * @return
+     * @throws SQLException
+     */
+    public static XYChart.Series<String, Double> getGdpGraph() throws SQLException {
+        XYChart.Series<String, Double> gdpSeries = new XYChart.Series<>();
         Connection con = null;
         Statement sqlStatement = null;
         ResultSet resultSet = null;
 
         try {
             //Connecting to Database
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/gdpData",
+            con = DriverManager.getConnection("jdbc:mysql://172.31.22.43/Ryan1111810?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
                     user, password);
             //creating statement object
             sqlStatement = con.createStatement();
-            resultSet = sqlStatement.executeQuery("SELECT quarter,year,gdpPercentChange FROM grossDomesticProduct order by year");
+            resultSet = sqlStatement.executeQuery("SELECT quarter,year,gdpPercentChange FROM grossDomesticProduct order by year,quarter");
             while (resultSet.next()) {
-                gdpSeries.getData().add(new XYChart.Data<>(resultSet.getString(1) + " " + (resultSet.getString(2)), resultSet.getInt(3)));
+                gdpSeries.getData().add(new XYChart.Data<>(resultSet.getString(1) + " " + (resultSet.getString(2)), resultSet.getDouble(3)));
             }
         } catch (Exception e) {
             e.printStackTrace();
