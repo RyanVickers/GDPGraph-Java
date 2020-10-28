@@ -111,6 +111,7 @@ public class DBUtility {
 
         try {
             //Connecting to Database
+            //have to use unicode to get around time error.
             con = DriverManager.getConnection("jdbc:mysql://172.31.22.43/Ryan1111810?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
                     user, password);
             //creating statement object
